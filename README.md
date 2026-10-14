@@ -14,7 +14,7 @@
 <br/>
 
 **Lead Threat Intelligence Analyst:** **Nazarov Zabihullo**  
-📞 **Phone:** `+998 33 737 37 03` &nbsp;|&nbsp; 💬 **Telegram:** [@Nazarov_Zabihullo](https://t.me/Nazarov_Zabihullo)
+💬 **Telegram:** [@Nazarov_Zabihullo](https://t.me/Nazarov_Zabihullo)
 
 ---
 
@@ -423,7 +423,6 @@ Here is a visual overview of the original 6-page comprehensive Threat Intelligen
 *Cyber Threat Intelligence (CTI) & SOC Analyst*  
 
 [![Telegram](https://img.shields.io/badge/Telegram-@Nazarov__Zabihullo-blue?style=for-the-badge&logo=telegram)](https://t.me/Nazarov_Zabihullo)
-[![Phone](https://img.shields.io/badge/Phone-+998_33_737_37_03-success?style=for-the-badge&logo=whatsapp)](tel:+998337373703)
 
 *If this threat intelligence research is valuable to your security operations, please star ⭐ this repository!*
 

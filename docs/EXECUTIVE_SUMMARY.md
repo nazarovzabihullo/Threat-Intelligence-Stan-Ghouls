@@ -2,7 +2,7 @@
 
 **Classification:** TLP:CLEAR  
 **Prepared By:** Nazarov Zabihullo (Cyber Threat Intelligence Analyst)  
-**Contact:** [Telegram: @Nazarov_Zabihullo](https://t.me/Nazarov_Zabihullo) | +998 33 737 37 03  
+**Contact:** [Telegram: @Nazarov_Zabihullo](https://t.me/Nazarov_Zabihullo)  
 **Target Region:** Uzbekistan (Primary), Kyrgyzstan, Kazakhstan, Russia, Turkey, Serbia, Belarus  
 **Victim Scale:** 60+ Confirmed Institutional & Corporate Compromises (50+ in Uzbekistan)  
 

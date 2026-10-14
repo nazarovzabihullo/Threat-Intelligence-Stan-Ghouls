@@ -4,8 +4,7 @@
     "threat_actor": "Stan Ghouls (aka Bloody Wolf)",
     "analyst": "Nazarov Zabihullo",
     "contact": {
-      "telegram": "@Nazarov_Zabihullo",
-      "phone": "+998 33 737 37 03"
+      "telegram": "@Nazarov_Zabihullo"
     },
     "tlp": "TLP:CLEAR",
     "target_regions": ["Uzbekistan", "Kyrgyzstan", "Kazakhstan", "Russia", "Turkey", "Serbia", "Belarus"],
