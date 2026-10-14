@@ -5,16 +5,16 @@
 
 set -e
 
-if [ -z "$1" ]; then
+REPO_URL="${1:-$(git remote get-url origin 2>/dev/null || echo '')}"
+
+if [ -z "$REPO_URL" ]; then
     echo "================================================================="
-    echo "❌ Xatolik: GitHub repozitoriy havolasini kiritmadingiz!"
+    echo "❌ Xatolik: GitHub repozitoriy havolasini kiritmadingiz va origin topilmadi!"
     echo "Foydalanish: ./push_to_github.sh <GITHUB_REPO_URL>"
-    echo "Misol: ./push_to_github.sh https://github.com/username/cti-report.git"
+    echo "Misol: ./push_to_github.sh https://github.com/nazarovzabihullo/Threat-Intelligence-Stan-Ghouls.git"
     echo "================================================================="
     exit 1
 fi
-
-REPO_URL="$1"
 
 echo "🚀 GitHub'ga yuklash boshlanmoqda..."
 echo "📍 Repo URL: $REPO_URL"
