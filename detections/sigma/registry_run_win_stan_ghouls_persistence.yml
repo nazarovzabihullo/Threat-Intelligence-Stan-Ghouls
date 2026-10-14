@@ -1,0 +1,27 @@
+title: Suspicious Run Key Persistence - Stan Ghouls Campaign
+id: 5b6c2091-a831-419b-a0d3-34e565819002
+status: experimental
+description: Detects creation or modification of Windows CurrentVersion\Run registry keys pointing to run.bat, as observed in Stan Ghouls NetSupport campaigns.
+references:
+    - https://securelist.com/stan-ghouls-in-uzbekistan/118738/
+author: Nazarov Zabihullo
+date: 2026-10-14
+tags:
+    - attack.persistence
+    - attack.t1547.001
+logsource:
+    category: registry_set
+    product: windows
+detection:
+    selection_target:
+        TargetObject|contains:
+            - '\Software\Microsoft\Windows\CurrentVersion\Run\'
+    selection_details:
+        Details|contains:
+            - 'run.bat'
+            - 'SoliqUZ_Run.bat'
+            - 'bat_install.bat'
+    condition: selection_target and selection_details
+falsepositives:
+    - Highly unlikely in enterprise networks.
+level: critical

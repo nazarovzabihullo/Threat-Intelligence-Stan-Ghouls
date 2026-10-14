@@ -1,0 +1,141 @@
+{
+  "type": "bundle",
+  "id": "bundle--3d085d77-62b8-4c90-99b3-4f2852269a21",
+  "spec_version": "2.1",
+  "objects": [
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--b4618a80-1a13-433e-b851-7e8c3b772091",
+      "created": "2026-10-14T12:00:00.000Z",
+      "modified": "2026-10-14T12:00:00.000Z",
+      "name": "Stan Ghouls",
+      "aliases": ["Bloody Wolf"],
+      "threat_actor_types": ["cybercrime-syndicate", "financial-crime"],
+      "description": "Cybercrime threat actor targeting Central Asia, primarily Uzbekistan and Kyrgyzstan, utilizing spearphishing lures spoofing court and tax systems to deploy NetSupport RAT and BurnsRAT for financial theft.",
+      "sophistication": "intermediate",
+      "resource_level": "organization",
+      "primary_motivation": "financial-gain"
+    },
+    {
+      "type": "malware",
+      "spec_version": "2.1",
+      "id": "malware--791054ee-5da9-49ba-8d59-26a11797c00e",
+      "created": "2026-10-14T12:00:00.000Z",
+      "modified": "2026-10-14T12:00:00.000Z",
+      "name": "NetSupport RAT",
+      "malware_types": ["remote-access-trojan", "keylogger", "spyware"],
+      "is_family": true,
+      "description": "Legitimate NetSupport Manager remote administration software weaponized as a remote access trojan."
+    },
+    {
+      "type": "malware",
+      "spec_version": "2.1",
+      "id": "malware--1e6872bf-0819-4bb4-9c86-1eb8df3306fa",
+      "created": "2026-10-14T12:00:00.000Z",
+      "modified": "2026-10-14T12:00:00.000Z",
+      "name": "BurnsRAT",
+      "malware_types": ["remote-access-trojan"],
+      "is_family": true,
+      "description": "Secondary remote access trojan utilized for backup C2 channel."
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--c8397a61-840e-4c76-9285-8a2bf61329a2",
+      "created": "2026-10-14T12:00:00.000Z",
+      "modified": "2026-10-14T12:00:00.000Z",
+      "name": "Spearphishing Link",
+      "description": "Adversary emails decoy court summons PDF containing link to malicious JAR.",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1566.002"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--a109e25c-8df4-41e9-9231-645ff72d005e",
+      "created": "2026-10-14T12:00:00.000Z",
+      "modified": "2026-10-14T12:00:00.000Z",
+      "name": "Environmental Keying (Geofencing)",
+      "description": "Loader verifies client IP location, serving malicious payload only to Uzbek IP ranges.",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1480.001"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--470ec15b-1c5f-40e9-b003-cb6ca58f557c",
+      "created": "2026-10-14T12:00:00.000Z",
+      "modified": "2026-10-14T12:00:00.000Z",
+      "name": "Registry Run Keys / Startup Folder",
+      "description": "Adversary establishes persistence via HKCU Run key and Startup folder SoliqUZ_Run.bat.",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1547.001"
+        }
+      ]
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--92d5be1c-3443-462e-92d5-be1cb5901b00",
+      "created": "2026-10-14T12:00:00.000Z",
+      "modified": "2026-10-14T12:00:00.000Z",
+      "name": "Stan Ghouls JAR Dropper Hash",
+      "pattern": "[file:hashes.'MD5' = '95db93454ec1d581311c832122d21b20']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--8f7d7531-508f-41f2-8508-f718cb83d000",
+      "created": "2026-10-14T12:00:00.000Z",
+      "modified": "2026-10-14T12:00:00.000Z",
+      "name": "E-SUD Decoy PDF Lure Hash",
+      "pattern": "[file:hashes.'MD5' = '7556e2f5a8f7d7531f28508f718cb83d']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--58f24300-188e-4227-8582-430000000001",
+      "created": "2026-10-14T12:00:00.000Z",
+      "modified": "2026-10-14T12:00:00.000Z",
+      "name": "Stan Ghouls C2 Domain mysoliq-uz.com",
+      "pattern": "[domain-name:value = 'mysoliq-uz.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-14T12:00:00.000Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c0010001-0001-0001-0001-000000000001",
+      "created": "2026-10-14T12:00:00.000Z",
+      "modified": "2026-10-14T12:00:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "threat-actor--b4618a80-1a13-433e-b851-7e8c3b772091",
+      "target_ref": "malware--791054ee-5da9-49ba-8d59-26a11797c00e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c0010001-0001-0001-0001-000000000002",
+      "created": "2026-10-14T12:00:00.000Z",
+      "modified": "2026-10-14T12:00:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "threat-actor--b4618a80-1a13-433e-b851-7e8c3b772091",
+      "target_ref": "attack-pattern--c8397a61-840e-4c76-9285-8a2bf61329a2"
+    }
+  ]
+}

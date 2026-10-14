@@ -1,0 +1,118 @@
+{
+  "report_metadata": {
+    "title": "Stan Ghouls (Bloody Wolf) Spearphishing Campaign Targeting Uzbekistan & Central Asia",
+    "threat_actor": "Stan Ghouls (aka Bloody Wolf)",
+    "analyst": "Nazarov Zabihullo",
+    "contact": {
+      "telegram": "@Nazarov_Zabihullo",
+      "phone": "+998 33 737 37 03"
+    },
+    "tlp": "TLP:CLEAR",
+    "target_regions": ["Uzbekistan", "Kyrgyzstan", "Kazakhstan", "Russia", "Turkey", "Serbia", "Belarus"],
+    "primary_target_count": 60,
+    "confidence": "High",
+    "generated_at": "2026-10-14T12:00:00Z"
+  },
+  "hashes": [
+    {
+      "type": "MD5",
+      "value": "7556e2f5a8f7d7531f28508f718cb83d",
+      "filename": "E-SUD_705306256_ljro_varaqasi.pdf",
+      "description": "Lure court enforcement sheet PDF embedded with malicious payload link"
+    },
+    {
+      "type": "MD5",
+      "value": "95db93454ec1d581311c832122d21b20",
+      "filename": "loader.jar",
+      "description": "Custom obfuscated Java JAR dropper requiring JRE"
+    },
+    {
+      "type": "MD5",
+      "value": "edfb8d26fa34436f2e92d5be1cb5901b",
+      "filename": "client32.ini (Variant A)",
+      "description": "NetSupport RAT configuration file"
+    },
+    {
+      "type": "MD5",
+      "value": "3e86f6fc7ed037f3c9560cc59aa7aacc",
+      "filename": "client32.ini (Variant B)",
+      "description": "NetSupport RAT configuration file"
+    },
+    {
+      "type": "MD5",
+      "value": "ae4d6812f5638d95a82b3fa3d4f92861",
+      "filename": "client32.ini (Variant C)",
+      "description": "NetSupport RAT configuration file"
+    }
+  ],
+  "domains": [
+    {"domain": "mysoliq-uz.com", "purpose": "Uzbek State Tax Committee spoofing"},
+    {"domain": "soliq-uz.com", "purpose": "Uzbek State Tax Committee spoofing"},
+    {"domain": "my-xb.com", "purpose": "Uzbek banking / public service lure"},
+    {"domain": "xarid-uz.com", "purpose": "Uzbek public procurement lure"},
+    {"domain": "ach-uz.com", "purpose": "Uzbek interbank clearing lure"},
+    {"domain": "minjust-kg.com", "purpose": "Kyrgyz Ministry of Justice spoofing"},
+    {"domain": "esf-kg.com", "purpose": "Kyrgyz Electronic Invoicing spoofing"},
+    {"domain": "taxnotice-kg.com", "purpose": "Kyrgyz tax notification spoofing"},
+    {"domain": "notice-kg.com", "purpose": "Kyrgyz government notice spoofing"},
+    {"domain": "proauditkg.com", "purpose": "Kyrgyz financial audit spoofing"},
+    {"domain": "kgaudicheck.com", "purpose": "Kyrgyz audit check lure"},
+    {"domain": "servicedoc.kg-auditcheck.com", "purpose": "Audit document delivery subdomain"},
+    {"domain": "servicedoc.kg-notice-com.rouming-uz.com", "purpose": "Phishing delivery subdomain"},
+    {"domain": "audit-kg.com", "purpose": "Kyrgyz audit lure"},
+    {"domain": "kyrgyzstanreview.com", "purpose": "Phishing staging infrastructure"},
+    {"domain": "salyk-notofocations.com", "purpose": "Kyrgyz tax notification spoofing"},
+    {"domain": "hgame33.com", "purpose": "Payload staging infrastructure"},
+    {"domain": "xoomep1.com:1935", "purpose": "C2 communication port 1935"},
+    {"domain": "xoomep2.com:1935", "purpose": "C2 communication port 1935"},
+    {"domain": "golden-scalen.com", "purpose": "C2 communication infrastructure"}
+  ],
+  "ipv4_addresses": [
+    {
+      "ip": "31.44.4.40",
+      "role": "Payload delivery host (bat_install.bat - Variant A)",
+      "asn_notes": "Hosting provider"
+    },
+    {
+      "ip": "188.227.58.243",
+      "role": "Payload delivery host (www.php + install BAT - Variant B/C)",
+      "asn_notes": "Hosting provider"
+    },
+    {
+      "ip": "188.227.106.124",
+      "role": "JS payload delivery & host - Variant C",
+      "asn_notes": "Hosting provider"
+    },
+    {
+      "ip": "45.133.16.135",
+      "role": "Payload delivery host - Variant D",
+      "asn_notes": "Hosting provider"
+    },
+    {
+      "ip": "193.42.32.138",
+      "role": "BurnsRAT C2 primary API endpoint",
+      "asn_notes": "C2 Command & Control"
+    },
+    {
+      "ip": "87.251.67.51",
+      "role": "BurnsRAT C2 backup API endpoint",
+      "asn_notes": "C2 Command & Control"
+    }
+  ],
+  "persistence_artifacts": [
+    {
+      "type": "registry",
+      "hive": "HKCU",
+      "key": "Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "value": "run.bat"
+    },
+    {
+      "type": "startup_folder",
+      "path": "%AppData%\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\SoliqUZ_Run.bat"
+    },
+    {
+      "type": "scheduled_task",
+      "command": "schtasks /TN malicious /TR run.bat /SC ONLOGON"
+    }
+  ]
+}

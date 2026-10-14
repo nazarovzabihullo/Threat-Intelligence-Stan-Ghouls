@@ -1,0 +1,26 @@
+title: Suspicious Scheduled Task Creation with ONLOGON - Stan Ghouls
+id: f491054e-9b22-4467-9d7a-12a1059f3303
+status: experimental
+description: Detects scheduled task creation configured with ONLOGON trigger named 'malicious' or executing batch files like run.bat.
+references:
+    - https://securelist.com/stan-ghouls-in-uzbekistan/118738/
+author: Nazarov Zabihullo
+date: 2026-10-14
+tags:
+    - attack.persistence
+    - attack.execution
+    - attack.t1053.005
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection_schtask:
+        Image|endswith: '\schtasks.exe'
+        CommandLine|contains:
+            - '/TN malicious'
+            - '/SC ONLOGON'
+            - 'run.bat'
+    condition: selection_schtask
+falsepositives:
+    - Unknown
+level: high

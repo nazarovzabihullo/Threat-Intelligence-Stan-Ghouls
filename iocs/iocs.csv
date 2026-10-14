@@ -1,0 +1,44 @@
+indicator_type,indicator_value,threat_actor,malware_family,role_or_context,tlp,confidence
+file_hash_md5,7556e2f5a8f7d7531f28508f718cb83d,Stan Ghouls,Decoy PDF,E-SUD_705306256_ljro_varaqasi.pdf (Court summons lure),TLP:CLEAR,High
+file_hash_md5,95db93454ec1d581311c832122d21b20,Stan Ghouls,JAR Loader,Custom malicious Java loader/dropper,TLP:CLEAR,High
+file_hash_md5,edfb8d26fa34436f2e92d5be1cb5901b,Stan Ghouls,NetSupport RAT,client32.ini C2 configuration (Variant A),TLP:CLEAR,High
+file_hash_md5,3e86f6fc7ed037f3c9560cc59aa7aacc,Stan Ghouls,NetSupport RAT,client32.ini C2 configuration (Variant B),TLP:CLEAR,High
+file_hash_md5,ae4d6812f5638d95a82b3fa3d4f92861,Stan Ghouls,NetSupport RAT,client32.ini C2 configuration (Variant C),TLP:CLEAR,High
+domain,mysoliq-uz.com,Stan Ghouls,NetSupport RAT,Spoofed Uzbek State Tax Committee (MySoliq) portal,TLP:CLEAR,High
+domain,soliq-uz.com,Stan Ghouls,NetSupport RAT,Spoofed Uzbek Tax service portal,TLP:CLEAR,High
+domain,my-xb.com,Stan Ghouls,NetSupport RAT,Spoofed Uzbek banking/public portal lure,TLP:CLEAR,High
+domain,xarid-uz.com,Stan Ghouls,NetSupport RAT,Spoofed Uzbek public procurement (Xarid) portal,TLP:CLEAR,High
+domain,ach-uz.com,Stan Ghouls,NetSupport RAT,Spoofed Uzbek banking automated clearing house lure,TLP:CLEAR,High
+domain,minjust-kg.com,Stan Ghouls,NetSupport RAT,Spoofed Kyrgyz Ministry of Justice portal,TLP:CLEAR,High
+domain,esf-kg.com,Stan Ghouls,NetSupport RAT,Spoofed Kyrgyz Electronic Invoicing portal,TLP:CLEAR,High
+domain,taxnotice-kg.com,Stan Ghouls,NetSupport RAT,Spoofed Kyrgyz Tax Notice notification portal,TLP:CLEAR,High
+domain,notice-kg.com,Stan Ghouls,NetSupport RAT,Spoofed Kyrgyz government notification portal,TLP:CLEAR,High
+domain,proauditkg.com,Stan Ghouls,NetSupport RAT,Spoofed Kyrgyz audit service lure,TLP:CLEAR,High
+domain,kgaudicheck.com,Stan Ghouls,NetSupport RAT,Spoofed Kyrgyz financial audit check lure,TLP:CLEAR,High
+domain,servicedoc.kg-auditcheck.com,Stan Ghouls,NetSupport RAT,Subdomain spoofing audit document delivery,TLP:CLEAR,High
+domain,servicedoc.kg-notice-com.rouming-uz.com,Stan Ghouls,NetSupport RAT,Phishing document delivery domain,TLP:CLEAR,High
+domain,audit-kg.com,Stan Ghouls,NetSupport RAT,Spoofed Kyrgyz audit lure,TLP:CLEAR,High
+domain,kyrgyzstanreview.com,Stan Ghouls,NetSupport RAT,Phishing staging domain,TLP:CLEAR,High
+domain,salyk-notofocations.com,Stan Ghouls,NetSupport RAT,Typosquatted Kyrgyz tax service notification,TLP:CLEAR,High
+domain,hgame33.com,Stan Ghouls,NetSupport RAT,C2 / payload staging infrastructure,TLP:CLEAR,Medium
+domain,xoomep1.com:1935,Stan Ghouls,NetSupport RAT,C2 communication stream port 1935,TLP:CLEAR,High
+domain,xoomep2.com:1935,Stan Ghouls,NetSupport RAT,C2 communication stream port 1935,TLP:CLEAR,High
+domain,golden-scalen.com,Stan Ghouls,NetSupport RAT,C2 communication infrastructure,TLP:CLEAR,High
+ipv4,31.44.4.40,Stan Ghouls,Stager,Payload delivery host (bat_install.bat - Variant A),TLP:CLEAR,High
+ipv4,188.227.58.243,Stan Ghouls,Stager,Payload delivery host (www.php + install BAT - Variant B/C),TLP:CLEAR,High
+ipv4,188.227.106.124,Stan Ghouls,Stager,JS payload delivery and payload host (Variant C),TLP:CLEAR,High
+ipv4,45.133.16.135,Stan Ghouls,Stager,Payload delivery host (Variant D),TLP:CLEAR,High
+ipv4,193.42.32.138,Stan Ghouls,BurnsRAT,BurnsRAT C2 primary API endpoint,TLP:CLEAR,High
+ipv4,87.251.67.51,Stan Ghouls,BurnsRAT,BurnsRAT C2 backup API endpoint,TLP:CLEAR,High
+filename,client32.exe,Stan Ghouls,NetSupport RAT,Legitimate NetSupport client hijacked as RAT,TLP:CLEAR,High
+filename,client32.ini,Stan Ghouls,NetSupport RAT,NetSupport client configuration with C2 parameters,TLP:CLEAR,High
+filename,NSM.lic,Stan Ghouls,NetSupport RAT,NetSupport license file required for execution,TLP:CLEAR,High
+filename,run.bat,Stan Ghouls,Persistence Script,Batch script launching client32.exe,TLP:CLEAR,High
+filename,SoliqUZ_Run.bat,Stan Ghouls,Persistence Script,Startup folder persistence script masquerading as Soliq.uz,TLP:CLEAR,High
+filename,PCICHEK.DLL,Stan Ghouls,NetSupport RAT,NetSupport component DLL,TLP:CLEAR,High
+filename,HTCTL32.DLL,Stan Ghouls,NetSupport RAT,NetSupport HTTP transport DLL,TLP:CLEAR,High
+filename,E-SUD_705306256_ljro_varaqasi.pdf,Stan Ghouls,Decoy PDF,Decoy court summons enforcement doc embedded in JAR,TLP:CLEAR,High
+filename,bat_install.bat,Stan Ghouls,Stager,Earlier variant batch installation script,TLP:CLEAR,High
+registry_key,"HKCU\Software\Microsoft\Windows\CurrentVersion\Run -> run.bat",Stan Ghouls,Persistence,User Run key persistence executing run.bat,TLP:CLEAR,High
+scheduled_task,"schtasks /TN malicious /TR run.bat /SC ONLOGON",Stan Ghouls,Persistence,Scheduled task executing run.bat at user logon,TLP:CLEAR,High
+file_path,"%AppData%\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\SoliqUZ_Run.bat",Stan Ghouls,Persistence,Startup folder execution path,TLP:CLEAR,High

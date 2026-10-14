@@ -1,0 +1,39 @@
+title: Suspicious NetSupport Client Execution - Stan Ghouls Campaign
+id: d7a12b48-18e3-4c91-95c2-f12b84931a01
+status: experimental
+description: Detects execution of NetSupport Manager client (client32.exe) from user-writable directories (AppData, Roaming, Temp) or invoked by suspicious batch files associated with Stan Ghouls (Bloody Wolf).
+references:
+    - https://securelist.com/stan-ghouls-in-uzbekistan/118738/
+    - https://thehackernews.com/2025/11/bloody-wolf-expands-java-based.html
+author: Nazarov Zabihullo
+date: 2026-10-14
+tags:
+    - attack.execution
+    - attack.t1059.003
+    - attack.defense_evasion
+    - attack.t1036
+    - attack.command_and_control
+    - attack.t1219
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection_image:
+        Image|endswith: '\client32.exe'
+    selection_parent:
+        ParentImage|endswith:
+            - '\cmd.exe'
+            - '\powershell.exe'
+            - '\wscript.exe'
+            - '\cscript.exe'
+            - '\java.exe'
+            - '\javaw.exe'
+    selection_path:
+        Image|contains:
+            - '\AppData\Roaming\'
+            - '\AppData\Local\'
+            - '\AppData\Local\Temp\'
+    condition: selection_image and (selection_parent or selection_path)
+falsepositives:
+    - Legitimate enterprise deployments of NetSupport Manager from Program Files.
+level: high

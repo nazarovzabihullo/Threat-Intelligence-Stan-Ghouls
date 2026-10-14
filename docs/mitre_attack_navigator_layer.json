@@ -1,0 +1,122 @@
+{
+  "name": "Stan Ghouls (Bloody Wolf) - Campaign Navigator Layer",
+  "versions": {
+    "attack": "14",
+    "navigator": "4.9.1",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "MITRE ATT&CK Navigator Layer for Stan Ghouls (Bloody Wolf) NetSupport RAT campaign targeting Uzbekistan and Central Asia. Analyzed by Nazarov Zabihullo.",
+  "gradient": {
+    "colors": ["#ffebee", "#ef5350", "#b71c1c"],
+    "minValue": 1,
+    "maxValue": 5
+  },
+  "techniques": [
+    {
+      "techniqueID": "T1566.002",
+      "score": 5,
+      "color": "#e53935",
+      "comment": "Spearphishing Link: Email lure with court summons PDF E-SUD_705306256_ljro_varaqasi.pdf",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1204.002",
+      "score": 4,
+      "color": "#e53935",
+      "comment": "User Execution: Victim manually clicks link and executes malicious JAR",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1059.007",
+      "score": 4,
+      "color": "#e53935",
+      "comment": "JavaScript/JScript: Malicious JAR loader execution",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1059.003",
+      "score": 4,
+      "color": "#e53935",
+      "comment": "Windows Command Shell: run.bat and SoliqUZ_Run.bat launching NetSupport client32.exe",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1547.001",
+      "score": 5,
+      "color": "#e53935",
+      "comment": "Registry Run Keys / Startup Folder: HKCU Run key + SoliqUZ_Run.bat in Startup directory",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1053.005",
+      "score": 5,
+      "color": "#e53935",
+      "comment": "Scheduled Task: schtasks /TN malicious /TR run.bat /SC ONLOGON",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1036",
+      "score": 4,
+      "color": "#e53935",
+      "comment": "Masquerading: Legitimate signed NetSupport binary client32.exe renamed / hijacked",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1027",
+      "score": 4,
+      "color": "#e53935",
+      "comment": "Obfuscated Files: Single-class JAR obfuscation with payload decoding",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1480.001",
+      "score": 5,
+      "color": "#e53935",
+      "comment": "Environmental Keying: Geofencing payload delivery to Uzbek IP blocks only",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1219",
+      "score": 5,
+      "color": "#e53935",
+      "comment": "Remote Access Software: NetSupport Manager weaponized as C2 trojan",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1071.001",
+      "score": 4,
+      "color": "#e53935",
+      "comment": "Web Protocols: HTTP/HTTPS traffic to malicious C2 infrastructure and port 1935",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1113",
+      "score": 4,
+      "color": "#e53935",
+      "comment": "Screen Capture: Real-time screen surveillance via NetSupport RAT",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1056.001",
+      "score": 4,
+      "color": "#e53935",
+      "comment": "Input Capture / Keylogging: Harvesting keystrokes and banking credentials",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1041",
+      "score": 4,
+      "color": "#e53935",
+      "comment": "Exfiltration Over C2: Streaming victim data back to adversary infrastructure",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1657",
+      "score": 5,
+      "color": "#b71c1c",
+      "comment": "Financial Theft: Primary campaign motivation targeting banking and accounting systems",
+      "enabled": true
+    }
+  ]
+}
